@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addProject } from '../actions/addProject';
 
 class ProjectInput extends React.Component{
 
@@ -23,7 +25,7 @@ class ProjectInput extends React.Component{
   handleOnSubmit = event => {
     let today = new Date();
     event.preventDefault();
-    console.log(this.state);
+    this.props.addProject(this.state)
     this.setState({
       name: '',
       description: '',
@@ -51,4 +53,4 @@ class ProjectInput extends React.Component{
   }
 }
 
-export default ProjectInput;
+export default connect(null, {addProject})(ProjectInput);
