@@ -1,17 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {fetchProjects} from './actions/fetchProjects'
+import ProjectsContainer from './containers/ProjectsContainer'
 
 class App extends React.Component {
 
   componentDidMount() {
-    this.props.fetchProjects({type: 'FETCH_PROJECTS', payload: {name: 'My project'}})
+
+
   }
 
   render () {
     return (
     <div className="App">
-      App
+      <ProjectsContainer/>
     </div>
     );
   }
@@ -23,4 +24,4 @@ class App extends React.Component {
 //   }
 // }
 
-export default connect(null, {fetchProjects})(App);
+export default connect()(App);
