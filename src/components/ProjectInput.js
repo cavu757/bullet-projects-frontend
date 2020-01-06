@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addProject } from '../actions/addProject';
+import { Redirect } from 'react-router-dom';
 
 class ProjectInput extends React.Component{
 
@@ -12,7 +13,8 @@ class ProjectInput extends React.Component{
     this.state = {
       name: '',
       description: '',
-      deadline: today.toISOString().slice(0,-8)
+      deadline: today.toISOString().slice(0,-8),
+      redirectToNewPage: false
     }
   }
 
@@ -29,11 +31,19 @@ class ProjectInput extends React.Component{
     this.setState({
       name: '',
       description: '',
-      deadline: today.toISOString().slice(0,-8)
+      deadline: today.toISOString().slice(0,-8),
+      redirectToNewPage: true
     })
   }
 
   render(){
+
+    if (this.state.redirectToNewPage){
+      return(
+        <Redirect to="/projects"/>
+      )
+    }
+
     return(
       <div>
         <form onSubmit={this.handleOnSubmit}>
