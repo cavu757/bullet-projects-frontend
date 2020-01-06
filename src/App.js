@@ -5,8 +5,6 @@ import ProjectsContainer from './containers/ProjectsContainer'
 class App extends React.Component {
 
   componentDidMount() {
-
-
   }
 
   render () {
@@ -17,11 +15,5 @@ class App extends React.Component {
     );
   }
 }
-
-// const mapStateToProps = (state) => {
-//   return {
-//     projects: state.projects
-//   }
-// }
 
 export default connect()(App);
