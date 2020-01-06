@@ -19,7 +19,7 @@ class ProjectsContainer extends React.Component {
         <br></br>
         <br></br>
         <Route path='/projects/new' component={ProjectInput}/>
-        <Route path='/projects/:id' render={(routerProps) => <Project {...routerProps} project={this.props.projects.filter(p => p.id == routerProps.match.params.id)}/>} />
+        <Route path='/projects/:id' render={(routerProps) => <Project {...routerProps} projects={this.props.projects}/>} />
         <Route exact path='/projects' render={(routerProps) => <Projects {...routerProps} projects={this.props.projects}/>} />
       </div>
     )
