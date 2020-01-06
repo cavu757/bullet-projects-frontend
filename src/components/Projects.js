@@ -1,10 +1,14 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 const Projects = (props) => {
-
+  
   return (
     <div>
-      {props.projects.map(project => <li key={project.id}> {project.name} - Days Left: {project.days_left}</li>)}
+      {props.projects.map(project =>
+        <div key={project.id}>
+          <Link to={`/projects/${project.id}`}>{project.name}</Link>
+        </div>)}
     </div>
   )
 }
