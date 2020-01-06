@@ -1,8 +1,10 @@
 import React from 'react';
 import ProjectInput from '../components/ProjectInput';
 import Projects from '../components/Projects';
+import Project from '../components/Project';
 import { connect } from 'react-redux';
 import {fetchProjects} from '../actions/fetchProjects';
+import { Route, Link } from 'react-router-dom'
 
 class ProjectsContainer extends React.Component {
 
@@ -13,8 +15,12 @@ class ProjectsContainer extends React.Component {
   render(){
     return(
       <div>
-        <ProjectInput/>
-        <Projects projects={this.props.projects}/>
+        <Link to={'/'}>Home</Link> *** <Link to={'/projects'}>All projects</Link> *** <Link to={'/projects/new'}>New project</Link>
+        <br></br>
+        <br></br>
+        <Route path='/projects/new' component={ProjectInput}/>
+        <Route path='/projects/:id' render={(routerProps) => <Project {...routerProps} project={this.props.projects.filter(p => p.id == routerProps.match.params.id)}/>} />
+        <Route exact path='/projects' render={(routerProps) => <Projects {...routerProps} projects={this.props.projects}/>} />
       </div>
     )
   }
