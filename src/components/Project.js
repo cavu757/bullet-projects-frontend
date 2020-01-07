@@ -5,6 +5,10 @@ const Project = (props) => {
 
   let project=props.projects.filter(p => p.id == props.match.params.id)[0]
 
+  // if (project && project.days_left === "OVERDUE"){
+  //   alert("ATTENTION: This project is overdue, TAKE ACTION TO REMEDIATE")
+  // }
+
   if (project){
   return (
     <div>
