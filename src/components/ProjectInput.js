@@ -13,7 +13,7 @@ class ProjectInput extends React.Component{
     this.state = {
       name: '',
       description: '',
-      deadline: today.toISOString().slice(0,-8),
+      deadline: today.toJSON().slice(0,10),
       redirectToNewPage: false
     }
   }
@@ -31,7 +31,7 @@ class ProjectInput extends React.Component{
     this.setState({
       name: '',
       description: '',
-      deadline: today.toISOString().slice(0,-8),
+      deadline: today.toJSON().slice(0,10),
       redirectToNewPage: true
     })
   }
@@ -54,7 +54,7 @@ class ProjectInput extends React.Component{
           <textarea name="description" value={this.state.description} onChange={this.handleOnChange} placeholder="Optional"/>
           <br></br>
           <label>Deadline(UTC):</label>
-          <input type="datetime-local" name="deadline" value={this.state.deadline} onChange={this.handleOnChange}/>
+          <input type="date" name="deadline" value={this.state.deadline} onChange={this.handleOnChange}/>
           <br></br>
           <input type="submit" value="Create Project" />
         </form>
