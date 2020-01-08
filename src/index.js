@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import projectReducer from './reducers/projectReducer';
 import { BrowserRouter as Router } from 'react-router-dom';
+import './css/fonts.css'
 
 import App from './App';
 

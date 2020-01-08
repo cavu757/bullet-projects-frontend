@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Gochi+Hand');
+
+body {
+  font-family: 'Gochi Hand', regular;
+  font-size: 1.3em;
+}
+
+.buttonBullet {
+  font-family: 'Gochi Hand', regular;
+  font-size: 1em;
+}
+
+.complete {
+  text-decoration: line-through;
+}
