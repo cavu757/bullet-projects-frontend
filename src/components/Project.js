@@ -11,7 +11,7 @@ const Project = (props) => {
     <div>
     <br></br>
     <> Project Name: {project.name} </>
-    <button><Link to={`/projects/${project.id}/bullets`}>Edit Project</Link></button>
+    <button><Link to={`/projects/${project.id}/edit`}>Edit Project</Link></button>
     <br></br>
     <> Days Left: {project.days_left} </>
 

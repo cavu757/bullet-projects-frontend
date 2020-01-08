@@ -46,6 +46,7 @@ class ProjectInput extends React.Component{
 
     return(
       <div>
+        <br></br>
         <form onSubmit={this.handleOnSubmit}>
           <label>Bullet Project Name:</label>
           <input type="text" name="name" value={this.state.name} onChange={this.handleOnChange} placeholder="Required"/>

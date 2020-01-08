@@ -11,7 +11,7 @@ const Events = (props) => {
   return (
     <div>
       {sortedEvents && sortedEvents.map(e =>
-        <div key={e.id}> {e.date} - <Link to={`/projects/${e.project_id}`}>{e.content}</Link></div>)}
+        <div key={e.id}> {e.date} - <Link to={`/projects/${e.project_id}`}>{e.content}</Link> ({e.project.name})</div>)}
     </div>
   )
 }

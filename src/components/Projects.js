@@ -5,6 +5,7 @@ const Projects = (props) => {
 
   return (
     <div>
+      <br></br>
       {props.projects.map(project =>
         <div key={project.id}>
           <Link to={`/projects/${project.id}`}>{project.name}</Link> (Days Left: {project.days_left})
