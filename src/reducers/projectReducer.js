@@ -1,9 +1,11 @@
 
-export default function projectReducer(state = {projects: []}, action) {
+export default function projectReducer(state = {projects: [], events: []}, action) {
 
   switch (action.type) {
     case 'FETCH_PROJECTS':
-      return {projects: action.payload}
+      return {...state, projects: action.payload}
+    case 'FETCH_ALL_EVENTS':
+      return {...state, events: action.payload}
     case 'ADD_PROJECT':
       return {...state, projects: [...state.projects, action.payload]}
     case 'ADD_BULLET':
