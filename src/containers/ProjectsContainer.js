@@ -12,10 +12,11 @@ class ProjectsContainer extends React.Component {
 
   componentDidMount(){
     this.props.fetchProjects();
-    this.props.fetchAllEvents()
+    this.props.fetchAllEvents();
   }
 
   render(){
+    
     return(
       <div>
         <Link to={'/'}>Home</Link> *** <Link to={'/projects'}>All projects</Link> *** <Link to={'/projects/new'}>New project</Link>
