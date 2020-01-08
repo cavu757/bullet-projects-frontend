@@ -11,7 +11,7 @@ class BulletInput extends React.Component {
     this.state = {
       content: '',
       category: 'task',
-      priority: false,
+      complete: false,
       date: today.toJSON().slice(0,10)
     }
   }
@@ -30,7 +30,7 @@ class BulletInput extends React.Component {
     this.setState({
       content: '',
       category: 'task',
-      priority: false,
+      complete: false,
       date: today.toJSON().slice(0,10)
     })
   }
