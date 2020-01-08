@@ -2,8 +2,12 @@ import React from 'react';
 
 const Bullet = (props) => {
 
-  const handleClick = event => {
-    console.log(event.target.value)
+  const handleClick = () => {
+    console.log(props)
+  }
+
+  const handleDelete = () => {
+
   }
 
   let bullet = props.bullet;
@@ -23,12 +27,12 @@ const Bullet = (props) => {
       date = null
       break
     default:
-      symbol = "-";
+      symbol = ".";
       date = null
   }
   return (
     <div>
-      <button className="buttonBullet" value={bullet.id} onClick={handleClick}>{symbol}</button> {bullet.content} {date}
+      <button className="buttonBullet" value={bullet.id} onClick={handleClick}>{symbol}</button> {bullet.content} {date} <button onClick={handleDelete}> delete </button>
     </div>
   )
 }

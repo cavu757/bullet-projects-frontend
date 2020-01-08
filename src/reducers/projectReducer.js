@@ -16,6 +16,14 @@ export default function projectReducer(state = {projects: [], events: []}, actio
           return project
         }})
       return {...state, projects: projects}
+    case 'DELETE_BULLET':
+      let projectsDel = state.projects.map(project => {
+        if (project.id === action.payload.id){
+          return action.payload
+        } else {
+          return project
+        }})
+      return {...state, projects: projectsDel}
     default:
       return state
   }
