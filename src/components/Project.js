@@ -1,20 +1,21 @@
 import React from 'react';
 import BulletsContainer from '../containers/BulletsContainer'
+import { Link } from 'react-router-dom'
 
 const Project = (props) => {
 
   let project=props.projects.filter(p => p.id == props.match.params.id)[0]
 
-  // if (project && project.days_left === "OVERDUE"){
-  //   alert("ATTENTION: This project is overdue, TAKE ACTION TO REMEDIATE")
-  // }
-
   if (project){
   return (
     <div>
-      <h3>Project Name: {project.name}</h3>
-      <h4>Days Left: {project.days_left}</h4>
-      <BulletsContainer project={project}/>
+    <br></br>
+    <> Project Name: {project.name} </>
+    <button><Link to={`/projects/${project.id}/bullets`}>Edit Project</Link></button>
+    <br></br>
+    <> Days Left: {project.days_left} </>
+
+    <BulletsContainer project={project}/>
     </div>
   )}
   else {
