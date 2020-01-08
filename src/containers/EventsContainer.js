@@ -1,7 +1,13 @@
 import React from 'react';
 import Events from '../components/Events'
+import {fetchAllEvents} from '../actions/fetchAllEvents';
+import { connect } from 'react-redux';
 
 class EventsContainer extends React.Component {
+
+  componentDidMount(){
+    this.props.fetchAllEvents();
+  }
 
   render(){
 
@@ -17,4 +23,4 @@ class EventsContainer extends React.Component {
   }
 }
 
-export default EventsContainer
+export default connect (null, {fetchAllEvents})(EventsContainer)
