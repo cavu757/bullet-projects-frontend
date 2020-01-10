@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { deleteBullet } from '../actions/deleteBullet';
 
 const Bullet = (props) => {
 
@@ -6,8 +8,8 @@ const Bullet = (props) => {
     console.log(props)
   }
 
-  const handleDelete = () => {
-
+  const handleDelete = (props) => {
+    props.deleteBullet(props.bullet.id, props.bullet.project_id)
   }
 
   let bullet = props.bullet;
@@ -32,9 +34,9 @@ const Bullet = (props) => {
   }
   return (
     <div>
-      <button className="buttonBullet" value={bullet.id} onClick={handleClick}>{symbol}</button> {bullet.content} {date} <button onClick={handleDelete}> delete </button>
+      <button className="buttonBullet" onClick={()=>handleClick(props)}>{symbol}</button> {bullet.content} {date} <button onClick={()=>handleDelete(props)}> delete </button>
     </div>
   )
 }
 
-export default Bullet
+export default connect(null,{deleteBullet})(Bullet)
