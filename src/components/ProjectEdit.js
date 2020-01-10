@@ -1,20 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addProject } from '../actions/addProject';
+
+import { updateProject } from '../actions/updateProject';
 import { Redirect } from 'react-router-dom';
 
-class ProjectInput extends React.Component{
+class ProjectEdit extends React.Component{
 
-  constructor(){
-    super();
-
-    let today = new Date()
-
+  constructor(props){
+    super(props);
     this.state = {
-      name: '',
-      description: '',
-      deadline: today.toJSON().slice(0,10),
-      redirectToNewPage: false
+      name: props.project.name,
+      description: props.project.description || '',
+      deadline: props.project.deadline
     }
   }
 
@@ -27,7 +24,7 @@ class ProjectInput extends React.Component{
   handleOnSubmit = event => {
     let today = new Date();
     event.preventDefault();
-    this.props.addProject(this.state)
+    this.props.updateProject(this.state)
     this.setState({
       name: '',
       description: '',
@@ -47,7 +44,7 @@ class ProjectInput extends React.Component{
     return(
       <div>
         <br></br>
-        <form onSubmit={this.handleOnSubmit}>
+        <form onSubmit={this.handleOnSubmit} >
           <label>Bullet Project Name:</label>
           <input type="text" name="name" value={this.state.name} onChange={this.handleOnChange} placeholder="Required"/>
           <br></br>
@@ -57,11 +54,11 @@ class ProjectInput extends React.Component{
           <label>Deadline:</label>
           <input type="date" name="deadline" value={this.state.deadline} onChange={this.handleOnChange}/>
           <br></br>
-          <input type="submit" value="Create Project" />
+          <input type="submit" value="Update Project" />
         </form>
       </div>
     )
   }
 }
 
-export default connect(null, {addProject})(ProjectInput);
+export default connect(null, {updateProject})(ProjectEdit);
