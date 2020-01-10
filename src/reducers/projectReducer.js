@@ -1,9 +1,11 @@
 
-export default function projectReducer(state = {projects: [], events: []}, action) {
+export default function projectReducer(state = {projects: [], events: [], project: []}, action) {
 
   switch (action.type) {
     case 'FETCH_PROJECTS':
       return {...state, projects: action.payload}
+    case 'FETCH_ONE_PROJECT':
+      return {...state, project: action.payload}
     case 'FETCH_ALL_EVENTS':
       return {...state, events: action.payload}
     case 'ADD_PROJECT':
@@ -17,13 +19,15 @@ export default function projectReducer(state = {projects: [], events: []}, actio
         }})
       return {...state, projects: projects}
     case 'DELETE_BULLET':
-      let projectsDel = state.projects.map(project => {
+      let projects_two = state.projects.map(project => {
         if (project.id === action.payload.id){
           return action.payload
         } else {
           return project
         }})
-      return {...state, projects: projectsDel}
+      return {...state, projects: projects_two}
+    case 'DELETE_PROJECT':
+      return {...state, projects: action.payload}
     default:
       return state
   }
