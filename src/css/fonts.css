@@ -1,15 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Gochi+Hand');
 
-body {
-  font-family: 'Gochi Hand', regular;
-  font-size: 1.3em;
-}
-
 .buttonBullet {
   font-family: 'Gochi Hand', regular;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 .complete {
   text-decoration: line-through;
+}
+
+body {
+  background: url(./notebook-background.png);
+  background-repeat: repeat-y;
+  padding-left: 120px;
+  padding-top: 30px;
+  font-family: 'Gochi Hand', regular;
+  font-size: 1.3em;
+  /*Please set this background color as close to the background image as possible.
+  titlebar for seamless window on macOS will use this background color.
+  typora for Win/Linux will use this to judge whether typora is in dark mode or light mode*/
 }
