@@ -18,14 +18,30 @@ export default function projectReducer(state = {projects: [], events: [], projec
           return project
         }})
       return {...state, projects: projects}
-    case 'DELETE_BULLET':
-      let projects_two = state.projects.map(project => {
+    case 'EDIT_PROJECT':
+      let projects_edit = state.projects.map(project => {
         if (project.id === action.payload.id){
           return action.payload
         } else {
           return project
         }})
-      return {...state, projects: projects_two}
+      return {...state, projects: projects_edit}
+    case 'EDIT_BULLET':
+      let projects_bul_edit = state.projects.map(project => {
+        if (project.id === action.payload.id){
+          return action.payload
+        } else {
+          return project
+        }})
+      return {...state, projects: projects_bul_edit}
+    case 'DELETE_BULLET':
+      let projects_bul_del = state.projects.map(project => {
+        if (project.id === action.payload.id){
+          return action.payload
+        } else {
+          return project
+        }})
+      return {...state, projects: projects_bul_del}
     case 'DELETE_PROJECT':
       return {...state, projects: action.payload}
     default:
