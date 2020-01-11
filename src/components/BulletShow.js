@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-const Bullet = (props) => {
+const BulletShow = (props) => {
 
 
   let bullet = props.bullet;
@@ -26,9 +26,9 @@ const Bullet = (props) => {
   }
   return (
     <div style={{textDecoration: props.bullet.complete ? "line-through" : ""}}>
-      <Link to={`/projects/${props.bullet.project_id}/bullets/${props.bullet.id}/edit`}><button className="buttonBullet">{symbol}</button></Link> {bullet.content} {date} 
+      <button className="buttonBullet">{symbol}</button> {bullet.content} {date} 
     </div>
   )
 }
 
-export default Bullet
+export default BulletShow
