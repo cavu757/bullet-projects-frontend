@@ -1,8 +1,7 @@
 import React from 'react';
-
 import ProjectEdit from '../components/ProjectEdit';
 import { connect } from 'react-redux';
-import { fetchOneProject} from '../actions/fetchOneProject';
+
 
 class ProjectEditContainer extends React.Component {
 
@@ -26,4 +25,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {fetchOneProject})(ProjectEditContainer)
+export default connect(mapStateToProps)(ProjectEditContainer)

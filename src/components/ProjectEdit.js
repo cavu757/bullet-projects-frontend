@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import { deleteProject } from '../actions/deleteProject';
 import { updateProject } from '../actions/updateProject';
 import { Redirect } from 'react-router-dom';
 
@@ -15,6 +15,17 @@ class ProjectEdit extends React.Component{
     }
   }
 
+  handleDelete = event => {
+    this.props.deleteProject(this.props.project.id);
+    let today = new Date();
+    this.setState({
+      name: '',
+      description: '',
+      deadline: today.toJSON().slice(0,10),
+      redirectToProjects: true
+    })
+  }
+
   handleOnChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -24,7 +35,8 @@ class ProjectEdit extends React.Component{
   handleOnSubmit = event => {
     let today = new Date();
     event.preventDefault();
-    this.props.updateProject(this.state)
+    let project = {...this.state, id: this.props.project.id}
+    this.props.updateProject(project)
     this.setState({
       name: '',
       description: '',
@@ -35,9 +47,22 @@ class ProjectEdit extends React.Component{
 
   render(){
 
-    if (this.state.redirectToNewPage){
+    if (this.state.redirectToProjects){
       return(
-        <Redirect to="/projects"/>
+        <Redirect to={{
+          pathname: '/projects/',
+          }}
+        />
+      )
+    }
+
+    if (this.state.redirectToNewPage){
+      let id = this.props.project.id
+      return(
+        <Redirect to={{
+          pathname: `/projects/${id}`,
+          }}
+        />
       )
     }
 
@@ -56,9 +81,10 @@ class ProjectEdit extends React.Component{
           <br></br>
           <input type="submit" value="Update Project" />
         </form>
+        <button onClick={this.handleDelete}> delete </button>
       </div>
     )
   }
 }
 
-export default connect(null, {updateProject})(ProjectEdit);
+export default connect(null, {updateProject, deleteProject})(ProjectEdit);
