@@ -2,6 +2,11 @@ import React from 'react';
 import BulletsContainer from '../containers/BulletsContainer'
 import { Link } from 'react-router-dom'
 
+
+const handleOnClick = (project) => {
+  project.description? alert(project.description) : alert("No description")
+}
+
 const Project = (props) => {
 
   let project=props.projects.filter(p => p.id == props.match.params.id)[0]
@@ -14,6 +19,8 @@ const Project = (props) => {
     <button><Link to={`/projects/${project.id}/edit`}>Edit Project</Link></button>
     <br></br>
     <> Days Left: {project.days_left} </>
+    <br></br>
+    <button onClick={()=>handleOnClick(project)}> info </button>
 
     <BulletsContainer project={project}/>
     </div>
