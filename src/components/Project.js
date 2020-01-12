@@ -1,10 +1,24 @@
 import React from 'react';
 import BulletsContainer from '../containers/BulletsContainer'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import {Button, OverlayTrigger, Popover} from 'react-bootstrap';
 
 
-const handleOnClick = (project) => {
-  project.description? alert(project.description) : alert("No description")
+const ProjectInfo = (props) => {
+  return(
+  <OverlayTrigger
+    placement="right"
+    delay={{show:250, hide: 100}}
+    overlay={
+      <Popover>
+        <Popover.Content>
+          {props.project.description? props.project.description : "No description"}
+        </Popover.Content>
+      </Popover>
+    }>
+      <span className="projectInfoDescription"> i </span>
+  </OverlayTrigger>
+  )
 }
 
 const Project = (props) => {
@@ -15,13 +29,12 @@ const Project = (props) => {
   return (
     <div>
     <br></br>
-    <> Project Name: {project.name} </>
-    <button><Link to={`/projects/${project.id}/edit`}>Edit Project</Link></button>
+    Project Name: {project.name}
+    <ProjectInfo project={project}/>
     <br></br>
-    <> Days Left: {project.days_left} </>
+    Days Left: {project.days_left}
     <br></br>
-    <button onClick={()=>handleOnClick(project)}> info </button>
-
+    <Button variant="link" size="lg"><Link to={`/projects/${project.id}/edit`}>Edit Project</Link></Button>
     <BulletsContainer project={project}/>
     </div>
   )}
