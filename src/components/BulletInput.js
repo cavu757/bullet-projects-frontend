@@ -46,7 +46,7 @@ class BulletInput extends React.Component {
         </select>
         <input type="text" name="content" value={this.state.content} onChange={this.handleOnChange} placeholder="Enter bullet..."/>
         <input type="date" name="date" value={this.state.date} onChange={this.handleOnChange}/>
-        <input type="submit" value="Create Bullet" />
+        <input type="submit" value="Enter" />
       </form>
       </div>
     )
