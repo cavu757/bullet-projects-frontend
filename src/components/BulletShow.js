@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
 
 const BulletShow = (props) => {
 
@@ -26,7 +25,7 @@ const BulletShow = (props) => {
   }
   return (
     <div style={{textDecoration: props.bullet.complete ? "line-through" : ""}}>
-      <button className="buttonBullet">{symbol}</button> {bullet.content} {date} 
+      <span className="bulletCategory">{symbol}</span> {bullet.content} {date}
     </div>
   )
 }
