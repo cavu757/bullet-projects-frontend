@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Bullet from './Bullet'
 import BulletShow from './BulletShow'
 import { deleteBullet } from '../actions/deleteBullet';
 import { updateBullet } from '../actions/updateBullet';
-import { Link, Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 class BulletEdit extends React.Component {
 
@@ -24,9 +24,11 @@ class BulletEdit extends React.Component {
     }
 
   toggleComplete = event => {
-    this.setState({
-      complete: !this.state.complete
-    })
+
+    this.state.complete = !this.state.complete
+
+    let bullet = {...this.state, pId: this.props.bullet.project_id, id: this.props.bullet.id};
+    this.props.updateBullet(bullet);
   }
 
 
@@ -94,12 +96,13 @@ class BulletEdit extends React.Component {
           <option>note</option>
         </select>
         <input type="text" name="content" value={this.state.content} onChange={this.handleOnChange} placeholder="Enter bullet..."/>
+        <br></br>
         <input type="date" name="date" value={this.state.date} onChange={this.handleOnChange}/>
         <input type="submit" value="Update Bullet" />
       </form>
       <br></br><BulletShow bullet={this.state}/>
-      <button onClick={this.handleDelete}> delete </button>
-      <button onClick={this.toggleComplete}> {this.state.complete ? "mark NOT complete" : "mark complete"} </button>
+      <Button variant="outline-danger" size="lg" onClick={e=> window.confirm("Delete this bullet?") && this.handleDelete(e)}> delete </Button>
+      <Button variant="outline-success" size="lg" onClick={this.toggleComplete}> {this.state.complete ? "mark NOT complete" : "mark complete"} </Button>
       </div>
     )
   }
