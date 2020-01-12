@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addProject } from '../actions/addProject';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { Form, Button } from 'react-bootstrap'
 
 class ProjectInput extends React.Component{
 
@@ -47,18 +48,24 @@ class ProjectInput extends React.Component{
     return(
       <div>
         <br></br>
-        <form onSubmit={this.handleOnSubmit}>
-          <label>Bullet Project Name:</label>
-          <input type="text" name="name" value={this.state.name} onChange={this.handleOnChange} placeholder="Required"/>
-          <br></br>
-          <label>Description:</label>
-          <textarea name="description" value={this.state.description} onChange={this.handleOnChange} placeholder="Optional"/>
-          <br></br>
-          <label>Deadline:</label>
-          <input type="date" name="deadline" value={this.state.deadline} onChange={this.handleOnChange}/>
-          <br></br>
-          <input type="submit" value="Create Project" />
-        </form>
+        <Form>
+          <Form.Group controlId="projectInputName">
+          <Form.Label>Bullet Project Name:</Form.Label>
+          <Form.Control type="text" name="name" style={{width: "500px"}} size="lg" value={this.state.name} onChange={this.handleOnChange} placeholder="Required"/>
+          </Form.Group>
+          <Form.Group controlId="projectInputDescription">
+          <Form.Label>Description:</Form.Label>
+          <Form.Control as="textarea" size="lg" rows="3" name="description" style={{width: "500px"}} value={this.state.description} onChange={this.handleOnChange} placeholder="Optional"/>
+          </Form.Group>
+          <Form.Group controlId="projectInputDeadline">
+          <Form.Label>Deadline:</Form.Label>
+          <Form.Control style={{width: "300px"}} size="lg" type="date" name="deadline" value={this.state.deadline} onChange={this.handleOnChange}/>
+          </Form.Group>
+
+          <Button as="input" variant="outline-primary" type="submit" size="lg" value="Create Project" onClick={this.handleOnSubmit} />
+          <Button variant="link" size="lg"><Link to={'/projects'}> Back to Projects </Link></Button>
+        </Form>
+
       </div>
     )
   }
