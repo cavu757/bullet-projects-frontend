@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
+
 
 const Bullet = (props) => {
 
@@ -26,7 +28,7 @@ const Bullet = (props) => {
   }
   return (
     <div style={{textDecoration: props.bullet.complete ? "line-through" : ""}}>
-      <Link to={`/projects/${props.bullet.project_id}/bullets/${props.bullet.id}/edit`}><button className="buttonBullet">{symbol}</button></Link> {bullet.content} {date} 
+      <span className="bulletCategory">{symbol}</span> {bullet.content} {date} <Button variant="link" size="sm"><Link to={`/projects/${props.bullet.project_id}/bullets/${props.bullet.id}/edit`}>edit</Link></Button>
     </div>
   )
 }
