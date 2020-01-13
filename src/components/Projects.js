@@ -13,7 +13,7 @@ const Projects = (props) => {
   return (
     <div>
       <br></br>
-      Current Project(s): 
+      Current Project(s):
       {sortedProjects.map(project =>
         <div key={project.id}>
           <Link to={`/projects/${project.id}`}><span className="blue">{project.bullets.length}</span> {project.name}</Link> (Days Left: {project.days_left})
@@ -23,7 +23,7 @@ const Projects = (props) => {
   else {
   return (
     <div>
-    <br></br>Blank state, create something :)
+    <br></br>Blank slate, create something :)
     </div>
   )
   }
