@@ -10,9 +10,14 @@ export const addProject = (data) => {
       body: JSON.stringify(data)
       })
       .then(response => response.json())
-      .then(project => dispatch({
+      .then(project => {
+        if (project.error) {
+          alert(project.error)
+        } else {
+        dispatch({
         type: 'ADD_PROJECT',
         payload: project
-      }))
+      })
+    }})
   }
 }
