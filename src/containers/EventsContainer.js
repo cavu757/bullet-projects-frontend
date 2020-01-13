@@ -16,7 +16,6 @@ class EventsContainer extends React.Component {
     return(
       <div>
         <br></br>
-        Upcoming Events
         <Events events={events}/>
       </div>
     )

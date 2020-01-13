@@ -1,7 +1,7 @@
 import React from 'react';
 import BulletEdit from '../components/BulletEdit';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom'
+
 import {fetchProjects} from '../actions/fetchProjects'
 
 class BulletEditContainer extends React.Component {
