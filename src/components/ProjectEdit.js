@@ -86,7 +86,7 @@ class ProjectEdit extends React.Component{
           </Form.Group>
 
           <Button as="input" variant="outline-primary" type="submit" size="lg" value="Update" readOnly onClick={this.handleOnSubmit} />
-          <Button variant="outline-danger" size="lg" onClick={e=> window.confirm("Delete this project?") && this.handleDelete(e)}> delete </Button>
+          <Button variant="outline-danger" size="lg" onClick={e=> window.confirm("Are you sure you want to DELETE this project? Remember all associated bullets will also be destroyed") && this.handleDelete(e)}> delete </Button>
           <Button variant="link" size="lg"><Link to={`/projects/${this.props.project.id}`}> Back to Project </Link></Button>
 
         </Form>
