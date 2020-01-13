@@ -44,8 +44,6 @@ span.bulletCategory {
   color: black;
   display: inline-block;
   font-size: 1.2em;
-  /* font-family: monospace;
-  font-weight: bold; */
   line-height: 1.6em;
   margin-right: -10px;
   text-align: center;
@@ -60,8 +58,6 @@ span.projectInfoDescription {
   color: white;
   display: inline-block;
   font-size: 1em;
-  /* font-family: monospace;
-  font-weight: bold; */
   line-height: 1.1em;
   margin-left: 10px;
   text-align: center;
@@ -76,8 +72,6 @@ span.numberOfThings {
   color: white;
   display: inline-block;
   font-size: 1em;
-  /* font-family: monospace;
-  font-weight: bold; */
   line-height: 1.1em;
   text-align: center;
   width: 1.1em;
