@@ -98,6 +98,7 @@ class BulletEdit extends React.Component {
         <input type="text" name="content" value={this.state.content} onChange={this.handleOnChange} placeholder="Enter bullet..."/>
         <br></br>
         <input type="date" name="date" value={this.state.date} onChange={this.handleOnChange}/>
+        <br></br>
         <input type="submit" value="Update Bullet" />
       </form>
       <br></br><BulletShow bullet={this.state}/>
