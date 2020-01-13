@@ -68,6 +68,21 @@ span.projectInfoDescription {
   width: 1.1em;
 }
 
+span.numberOfThings {
+  background: #007bff;
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  color: white;
+  display: inline-block;
+  font-size: 1em;
+  /* font-family: monospace;
+  font-weight: bold; */
+  line-height: 1.1em;
+  text-align: center;
+  width: 1.1em;
+}
+
 .categorySelection {
   font-family: monospace;
   font-size: 1em;

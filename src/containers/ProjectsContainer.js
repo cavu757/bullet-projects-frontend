@@ -21,7 +21,7 @@ class ProjectsContainer extends React.Component {
 
     return(
       <div>
-        <Link to={'/'}>Home</Link> *** <Link to={'/projects'}>All projects</Link> *** <Link to={'/projects/new'}>New project</Link>
+        <Link to={'/'}>Home</Link> *** <Link to={'/projects'}><span className="numberOfThings">{this.props.projects.length}</span> project(s)</Link> *** <Link to={'/projects/new'}>New project</Link>
         <br></br>
         <Switch>
         <Route exact path='/' render={(routerProps) => <EventsContainer {...routerProps} events={this.props.events}/>} />

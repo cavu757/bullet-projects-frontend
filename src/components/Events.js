@@ -10,7 +10,7 @@ const Events = (props) => {
   if (sortedEvents.length>0){
   return (
     <div>
-      Upcoming Events
+      <span className="numberOfThings">{sortedEvents.length}</span> Upcoming Event(s)
       <br></br>
       {sortedEvents && sortedEvents.map(e =>
         <div key={e.id}> {e.date.slice(5)} / <Link to={`/projects/${e.project_id}`}>{e.content}</Link> ({e.project.name})</div>)}
