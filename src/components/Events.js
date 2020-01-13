@@ -19,7 +19,7 @@ const Events = (props) => {
   else {
     return (
       <div>
-      Did not find any upcoming events :(
+      Check your projects. I did not find any upcoming events :(
       </div>
     )
   }

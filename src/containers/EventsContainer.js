@@ -14,10 +14,6 @@ class EventsContainer extends React.Component {
 
     let events = this.props.events
 
-    if (this.props.projects.length == 0) {
-      return <Redirect to="/projects"/>
-    }
-
     return(
       <div>
         <br></br>
