@@ -26,17 +26,27 @@ class ProjectsContainer extends React.Component {
         <Switch>
         <Route exact path='/' render={(routerProps) => <EventsContainer {...routerProps} events={this.props.events} projects={this.props.projects}/>} />
         <Route exact path='/projects' render={(routerProps) => <Projects {...routerProps} projects={this.props.projects}/>} />
-        <Route path='/projects/new' component={ProjectInput}/>
+        <Route exact path='/projects/new' component={ProjectInput}/>
         <Route exact path='/projects/:id' render={(routerProps) => <Project {...routerProps} projects={this.props.projects}/>} />
-        <Route path='/projects/:id/edit' render={(routerProps) => <ProjectEditContainer {...routerProps} projects={this.props.projects}/>} />
-        <Route path='/projects/:id/bullets/:b_id/edit' render={(routerProps) => <BulletEditContainer {...routerProps} projects={this.props.projects}/>}/>
-
+        <Route exact path='/projects/:id/edit' render={(routerProps) => <ProjectEditContainer {...routerProps} projects={this.props.projects}/>} />
+        <Route exact path='/projects/:id/bullets/:b_id/edit' render={(routerProps) => <BulletEditContainer {...routerProps} projects={this.props.projects}/>}/>
+        <Route component={NoMatch}/>
 
         </Switch>
       </div>
     )
   }
 }
+
+const NoMatch = () => (
+  <div>
+  <br></br>
+  I am sorry, I could not find that page :(
+  <br></br>
+  Click <span><Link to={'/'}>here</Link></span> to go to the
+  <span><Link to={'/'}> Home Page</Link></span>
+  </div>
+)
 
 const mapStateToProps = state => {
 

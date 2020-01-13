@@ -39,8 +39,12 @@ const Project = (props) => {
     </div>
   )}
   else {
-    return null
-  }
+    return (
+      <div>
+      <br></br>
+      Sorry, that project does not exist.
+      </div>
+  )}
 }
 
 export default Project
