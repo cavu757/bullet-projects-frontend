@@ -62,7 +62,7 @@ class ProjectInput extends React.Component{
           <Form.Control style={{width: "300px"}} size="lg" type="date" name="deadline" value={this.state.deadline} onChange={this.handleOnChange}/>
           </Form.Group>
 
-          <Button as="input" variant="outline-primary" type="submit" size="lg" value="Create Project" onClick={this.handleOnSubmit} />
+          <Button as="input" variant="outline-primary" type="submit" size="lg" value="Create Project" readOnly onClick={this.handleOnSubmit} />
           <Button variant="link" size="lg"><Link to={'/projects'}> Back to Projects </Link></Button>
         </Form>
 

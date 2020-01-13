@@ -85,7 +85,7 @@ class ProjectEdit extends React.Component{
           <Form.Control style={{width: "300px"}} size="lg" type="date" name="deadline" value={this.state.deadline} onChange={this.handleOnChange}/>
           </Form.Group>
 
-          <Button as="input" variant="outline-primary" type="submit" size="lg" value="Update" onClick={this.handleOnSubmit} />
+          <Button as="input" variant="outline-primary" type="submit" size="lg" value="Update" readOnly onClick={this.handleOnSubmit} />
           <Button variant="outline-danger" size="lg" onClick={e=> window.confirm("Delete this project?") && this.handleDelete(e)}> delete </Button>
           <Button variant="link" size="lg"><Link to={`/projects/${this.props.project.id}`}> Back to Project </Link></Button>
 
