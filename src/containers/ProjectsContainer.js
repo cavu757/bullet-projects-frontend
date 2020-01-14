@@ -24,14 +24,13 @@ class ProjectsContainer extends React.Component {
         <Link to={'/'}>Home</Link> *** <Link to={'/projects'}><span className="numberOfThings">{this.props.projects.length}</span> project(s)</Link> *** <Link to={'/projects/new'}>New project</Link>
         <br></br>
         <Switch>
-        <Route exact path='/' render={(routerProps) => <EventsContainer {...routerProps} events={this.props.events} projects={this.props.projects}/>} />
-        <Route exact path='/projects' render={(routerProps) => <Projects {...routerProps} projects={this.props.projects}/>} />
-        <Route exact path='/projects/new' component={ProjectInput}/>
-        <Route exact path='/projects/:id' render={(routerProps) => <Project {...routerProps} projects={this.props.projects}/>} />
-        <Route exact path='/projects/:id/edit' render={(routerProps) => <ProjectEditContainer {...routerProps} projects={this.props.projects}/>} />
-        <Route exact path='/projects/:id/bullets/:b_id/edit' render={(routerProps) => <BulletEditContainer {...routerProps} projects={this.props.projects}/>}/>
-        <Route component={NoMatch}/>
-
+          <Route exact path='/' render={(routerProps) => <EventsContainer {...routerProps} events={this.props.events} projects={this.props.projects}/>} />
+          <Route exact path='/projects' render={(routerProps) => <Projects {...routerProps} projects={this.props.projects}/>} />
+          <Route exact path='/projects/new' component={ProjectInput}/>
+          <Route exact path='/projects/:id' render={(routerProps) => <Project {...routerProps} projects={this.props.projects}/>} />
+          <Route exact path='/projects/:id/edit' render={(routerProps) => <ProjectEditContainer {...routerProps} projects={this.props.projects}/>} />
+          <Route exact path='/projects/:id/bullets/:b_id/edit' render={(routerProps) => <BulletEditContainer {...routerProps} projects={this.props.projects}/>}/>
+          <Route component={NoMatch}/>
         </Switch>
       </div>
     )

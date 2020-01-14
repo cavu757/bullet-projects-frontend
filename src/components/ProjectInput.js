@@ -48,7 +48,7 @@ class ProjectInput extends React.Component{
     return(
       <div>
         <br></br>
-        <Form>
+        <Form onSubmit={this.handleOnSubmit}>
           <Form.Group controlId="projectInputName">
           <Form.Label>Bullet Project Name:</Form.Label>
           <Form.Control type="text" name="name" style={{width: "500px"}} size="lg" value={this.state.name} onChange={this.handleOnChange} placeholder="Required"/>
@@ -60,10 +60,11 @@ class ProjectInput extends React.Component{
           <Form.Group controlId="projectInputDeadline">
           <Form.Label>Deadline:</Form.Label>
           <Form.Control style={{width: "300px"}} size="lg" type="date" name="deadline" value={this.state.deadline} onChange={this.handleOnChange}/>
+          <br></br>
+          <Button variant="outline-primary" type="submit" size="lg">Create Project</Button>
+          <Button variant="link" size="lg"><Link to={'/projects'}> Back to Projects </Link></Button>
           </Form.Group>
 
-          <Button as="input" variant="outline-primary" type="submit" size="lg" value="Create Project" readOnly onClick={this.handleOnSubmit} />
-          <Button variant="link" size="lg"><Link to={'/projects'}> Back to Projects </Link></Button>
         </Form>
 
       </div>

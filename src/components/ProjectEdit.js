@@ -69,9 +69,8 @@ class ProjectEdit extends React.Component{
 
     return(
       <div>
-
         <br></br>
-        <Form>
+        <Form onSubmit={this.handleOnSubmit}>
           <Form.Group controlId="projectEditName">
           <Form.Label>Bullet Project Name:</Form.Label>
           <Form.Control type="text" name="name" style={{width: "500px"}} size="lg" value={this.state.name} onChange={this.handleOnChange} placeholder="Required"/>
@@ -83,14 +82,12 @@ class ProjectEdit extends React.Component{
           <Form.Group controlId="projectEditDeadline">
           <Form.Label>Deadline:</Form.Label>
           <Form.Control style={{width: "300px"}} size="lg" type="date" name="deadline" value={this.state.deadline} onChange={this.handleOnChange}/>
-          </Form.Group>
-
-          <Button as="input" variant="outline-primary" type="submit" size="lg" value="Update" readOnly onClick={this.handleOnSubmit} />
+          <br></br>
+          <Button variant="outline-primary" type="submit" size="lg">Update</Button>
           <Button variant="outline-danger" size="lg" onClick={e=> window.confirm("Are you sure you want to DELETE this project? Remember all associated bullets will also be destroyed") && this.handleDelete(e)}> delete </Button>
           <Button variant="link" size="lg"><Link to={`/projects/${this.props.project.id}`}> Back to Project </Link></Button>
-
+          </Form.Group>
         </Form>
-
       </div>
     )
   }
