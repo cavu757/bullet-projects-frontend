@@ -23,12 +23,15 @@ class BulletEdit extends React.Component {
       }}
     }
 
-  toggleComplete = event => {
-
-    this.state.complete = !this.state.complete
-
-    let bullet = {...this.state, pId: this.props.bullet.project_id, id: this.props.bullet.id};
-    this.props.updateBullet(bullet);
+  toggleComplete = props => {
+    let newBullet = {...this.state, complete: props}
+    if (this.state.complete != newBullet.complete){
+      this.setState({
+        complete: newBullet.complete
+      })
+      let bullet = {...newBullet, pId: this.props.bullet.project_id, id: this.props.bullet.id};
+      this.props.updateBullet(bullet);
+    }
   }
 
 
@@ -103,7 +106,7 @@ class BulletEdit extends React.Component {
       </form>
       <br></br><BulletShow bullet={this.state}/>
       <Button variant="outline-danger" size="lg" onClick={e=> window.confirm("Delete this bullet?") && this.handleDelete(e)}> delete </Button>
-      <Button variant="outline-success" size="lg" onClick={this.toggleComplete}> {this.state.complete ? "mark NOT complete" : "mark complete"} </Button>
+      <Button variant="outline-success" size="lg" onClick={()=>this.toggleComplete(!this.props.bullet.complete)}> {this.state.complete ? "mark NOT complete" : "mark complete"} </Button>
       </div>
     )
   }
